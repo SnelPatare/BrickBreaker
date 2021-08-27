@@ -4,5 +4,9 @@ public class Brick implements Observer{
 		public void update() {
 			
 		}
+		
+		public Brick(Observable o) {
+			o.addObserver(this);
+		}
 
 }

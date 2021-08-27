@@ -5,5 +5,17 @@ public class Paddle implements Observer{
 	public void update() {
 		
 	}
+	
+	public Paddle (Observable o) {
+		/*Rest of constructor
+		*
+		*
+		*
+		*
+		*
+		*
+		*/
+		o.addObserver(this);
+	}
 
 }

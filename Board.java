@@ -1,11 +1,13 @@
 
-public class Clock implements Observer{
+public class Board implements Observer{
+
+
 	//Inherited method from Observer
 		public void update() {
 			
 		}
 		
-		public Clock(Observable o) {
+		public Board(Observable o) {
 			o.addObserver(this);
 		}
 
