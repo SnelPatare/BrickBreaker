@@ -1,4 +1,4 @@
-package BrickBreaker;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,7 +48,7 @@ public class BrickBreakerFea {
                     X = 650;
                 }
                 else{
-                    moveRight();
+                    //moveRight();
                 }
             }
             if(e.getKeyCode() == KeyEvent.VK_LEFT){
@@ -56,7 +56,7 @@ public class BrickBreakerFea {
                     X = 10;
                 }
                 else{
-                    moveLeft();
+                    //moveLeft();
                 }
             }
 
