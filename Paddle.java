@@ -1,12 +1,14 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Paddle1 implements Ball{
-	//private int BallY
-	//Inherited method from Observer
-	public void update() {
-		
-	}
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
-    public class Paddle extends JPanel implements KeyListener, ActionListener {
+public class Paddle extends JPanel implements KeyListener, ActionListener {
         int Loc_X;
         int Loc_Y;
         public Paddle() {
@@ -26,6 +28,14 @@ public class Paddle1 implements Ball{
             g.setColor(Color.blue);
             g.fillRect(Loc_X,Loc_Y,100,10);
             //g.dispose();
+        }
+        
+        public int getX() {
+        	return Loc_X;
+        }
+        
+        public int getY() {
+        	return Loc_Y;
         }
 
 
@@ -68,6 +78,7 @@ public class Paddle1 implements Ball{
         }
         public boolean isFocusTraversal(){ return true;}
 		//o.addObserver(this);
+
 	}
 
-}
+

@@ -1,13 +1,5 @@
-/.classpath
-/.project
-/Ball.class
-/Board.class
-/Brick.class
-/BrickBreakerFea$Play.class
-/BrickBreakerFea.class
-/Clock.class
-/Observable.class
-/Observer.class
+/Paddle1$Paddle.class
+/Paddle1.class
 /Paddle.class
-/README.md
-/BrickBreakerMain.class
+/.idea/
+/Board$1.class

@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -18,8 +19,11 @@ public class Ball extends JPanel implements Observable {
 		  float Y = radius + 20;
 		 
 		  // Direction
-		  float dx = 5;
-		  float dy = 5;
+		  float dx = 8;
+		  float dy = 8;
+		  
+		  //List of Observers
+		  ArrayList<Observer> observers = new ArrayList<Observer>();
 		  
 		 
 		  public Ball() {
@@ -72,15 +76,15 @@ public class Ball extends JPanel implements Observable {
 		  }
 	
 	public void addObserver(Observer o) {
-		
+		observers.add(o);
 	}
 	
 	public void removeObserver(Observer o) {
-		
+		observers.remove(observers.indexOf(o));
 	}
 	
 	public void updateObserver(Observer o) {
-		
+		o.update();
 	}
 
 }

@@ -14,16 +14,19 @@ public class BrickBreakerMain{
         Ball ball = new Ball();
         //Takes in Ball as a parameter to observe as well as number of bricks
         Board gameBoard = new Board(ball, 10); 
-        ball.addObserver(gameBoard);
+        //ball.addObserver(gameBoard);
         frame.setSize(800,600);
         frame.setTitle("Brick Breaker");
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Paddle paddle = new Paddle();
+        frame.add(paddle);
         //frame.pack();
         frame.setVisible(true);
         frame.add(gameBoard);
-        frame.setContentPane(ball);
-        ball.move();
+        //frame.setContentPane(ball);
+        frame.setContentPane(gameBoard);
+       // ball.move();
 
     }
 }
