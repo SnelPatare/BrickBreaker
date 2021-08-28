@@ -24,6 +24,8 @@ public class Board extends JPanel implements Observer,KeyListener,ActionListener
 		}
 		
 		public Board(Observable ball, int numBricks) {
+			this.addKeyListener(this);
+			this.setFocusable(true);
 			ball.addObserver(this);
 			this.bricks = numBricks;
 			int brickX = 50;
@@ -33,7 +35,7 @@ public class Board extends JPanel implements Observer,KeyListener,ActionListener
 			for(int i = 0; i < numBricks; i++) {
 				Brick newBrick = new Brick(ball);
 				ball.addObserver(newBrick);
-				this.add(newBrick, brickX, brickY);
+				//this.add(newBrick, brickX, brickY);
 				brickX += 50;
 				//Every 5 bricks move to create a new row
 				if(i % 5 == 0) {
@@ -45,7 +47,7 @@ public class Board extends JPanel implements Observer,KeyListener,ActionListener
 			//Adds the Paddle
 			Paddle paddle = new Paddle(ball);
 			ball.addObserver(paddle);
-			this.add(paddle, 50, 550);
+			//this.add(paddle, 50, 550);
 			
 		}
 	
@@ -70,9 +72,13 @@ public class Board extends JPanel implements Observer,KeyListener,ActionListener
 
 	        @Override
 	        public void keyTyped(KeyEvent e) {
-	        	if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D)
+	        	//Not necessary to implement but header required from interface.
+	        }
+	        @Override
+	        public void keyPressed(KeyEvent e) {
+	            if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D)
 	            {
-	            	System.out.println("Right");
+	            	System.out.println("Right keypressed");
 	                if(X>=650){
 	                    X = 650;
 	                }
@@ -81,30 +87,7 @@ public class Board extends JPanel implements Observer,KeyListener,ActionListener
 	                }
 	            }
 	            if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A){
-	            	System.out.println("left");
-	                if(X>=10){
-	                    X = 10;
-	                }
-	                else{
-	                    //moveLeft();
-	                }
-	            }
-	        }
-
-	        @Override
-	        public void keyPressed(KeyEvent e) {
-	            if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-	            {
-	            	System.out.println("Right");
-	                if(X>=650){
-	                    X = 650;
-	                }
-	                else{
-	                    //moveRight();
-	                }
-	            }
-	            if(e.getKeyCode() == KeyEvent.VK_LEFT){
-	            	System.out.println("left");
+	            	System.out.println("left keypressed");
 	                if(X>=10){
 	                    X = 10;
 	                }
