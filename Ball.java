@@ -60,6 +60,9 @@ public class Ball extends JPanel implements Observable {
 			        	 if(ball.intersects(o.getBounds())){
 			        		 dx = -dx;
 			        		 dy = -dy;
+			        		 if(o instanceof Brick) {
+			        			 o.update();
+			        		 }
 			        	 }
 			          }
 		  }
