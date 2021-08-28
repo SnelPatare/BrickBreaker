@@ -5,10 +5,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Paddle extends JPanel implements KeyListener, ActionListener {
+//public class Paddle1 implements Ball{
+	//private int BallY
+	//Inherited method from Observer
+	public void update() {
+		
+	}
         int Loc_X;
         int Loc_Y;
         public Paddle() {
@@ -76,9 +83,10 @@ public class Paddle extends JPanel implements KeyListener, ActionListener {
         @Override
         public void keyReleased(KeyEvent e) {
         }
-        public boolean isFocusTraversal(){ return true;}
+        
+        public boolean isFocusTraversal(){ 
+        	return true;
+    	}
 		//o.addObserver(this);
 
-	}
-
-
+}
