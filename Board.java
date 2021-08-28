@@ -59,7 +59,7 @@ public class Board extends JPanel{
 			gamePaddle = new Paddle();			
 			this.add(gamePaddle);
 			gameBall.addObserver(gamePaddle);
-			repaint();
+			//repaint();
 			start();
 		}
 		

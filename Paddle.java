@@ -32,7 +32,7 @@ public class Paddle extends JPanel implements Observer, KeyListener, ActionListe
 
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            this.setBackground(Color.GREEN);
+            //this.setBackground(Color.GREEN);
             //g.setColor(Color.GREEN);
             g.setColor(Color.green);
             g.fillRect(Loc_X,Loc_Y,100,10);
@@ -67,8 +67,8 @@ public class Paddle extends JPanel implements Observer, KeyListener, ActionListe
         public void keyPressed(KeyEvent e) {
             int Key=e.getKeyCode();
             if (Key == KeyEvent.VK_RIGHT) {
-                if (Loc_X >= 775){
-                    Loc_X = 775;
+                if (Loc_X >= 675){
+                    Loc_X = 675;
                 }
                 else {
                     //System.out.println(Loc_X+ ", after: "+ (Loc_X-1));
