@@ -22,6 +22,8 @@ public class BrickBreakerMain{
         //frame.pack();
         frame.setVisible(true);
         frame.add(gameBoard);
+        frame.setContentPane(ball);
+        ball.move();
 
     }
 }
