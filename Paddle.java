@@ -1,12 +1,15 @@
 
-public class Paddle1 implements Ball{
+//public class Paddle1 implements Ball{
 	//private int BallY
 	//Inherited method from Observer
-	public void update() {
+	//public void update() {
+		
+	//}
+
+    public class Paddle extends JPanel implements Observer, KeyListener, ActionListener {
+	    public void update() {
 		
 	}
-
-    public class Paddle extends JPanel implements KeyListener, ActionListener {
         int Loc_X;
         int Loc_Y;
         public Paddle() {
@@ -69,5 +72,3 @@ public class Paddle1 implements Ball{
         public boolean isFocusTraversal(){ return true;}
 		//o.addObserver(this);
 	}
-
-}
