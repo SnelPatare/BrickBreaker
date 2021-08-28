@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JComponent;
@@ -53,7 +54,14 @@ public class Ball extends JPanel implements Observable {
 			            dy = -dy;
 			            Y = height - radius;
 			          }
-			          repaint();
+			         
+			          for(Observer o: observers) {
+			        	 Rectangle ball = new Rectangle((int)X, (int)Y, (int)diameter, (int)diameter);
+			        	 if(ball.intersects(o.getBounds())){
+			        		 dx = -dx;
+			        		 dy = -dy;
+			        	 }
+			          }
 		  }
 		 
 		  public void paintComponent(Graphics g) {

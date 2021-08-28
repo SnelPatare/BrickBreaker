@@ -11,7 +11,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Board extends JPanel implements Observer{
+public class Board extends JPanel{
 	
 	    int score = 0;
 	    int bricks = 12;
@@ -33,7 +33,7 @@ public class Board extends JPanel implements Observer{
 			//this.setSize(getWidth(), getHeight());
 			this.gameBall = gameBall;
 			
-			gameBall.addObserver(this);
+			//gameBall.addObserver(this);
 			this.add(gameBall);
 			
 			///gameBall.move();
@@ -58,6 +58,7 @@ public class Board extends JPanel implements Observer{
 			
 			gamePaddle = new Paddle();			
 			this.add(gamePaddle);
+			gameBall.addObserver(gamePaddle);
 			repaint();
 			start();
 		}
@@ -72,7 +73,7 @@ public class Board extends JPanel implements Observer{
 		Thread thread = new Thread() {
 	      public void run() {
 		        while (true) {
-		          gameBall.move();
+		            gameBall.move();
 		        	repaint();
 		          
 		          try {
