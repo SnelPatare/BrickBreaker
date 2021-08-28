@@ -32,7 +32,7 @@ public class Paddle extends JPanel implements KeyListener, ActionListener {
             super.paintComponent(g);
             this.setBackground(Color.GREEN);
             //g.setColor(Color.GREEN);
-            g.setColor(Color.blue);
+            g.setColor(Color.green);
             g.fillRect(Loc_X,Loc_Y,100,10);
             //g.dispose();
         }

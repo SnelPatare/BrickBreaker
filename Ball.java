@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class Ball extends JPanel implements Observable {
@@ -31,12 +32,8 @@ public class Ball extends JPanel implements Observable {
 		  }
 		  
 		  public void move() {
-			  Thread thread = new Thread() {
-			      public void run() {
-			        while (true) {
-			 
-			          width = getWidth();
-			          height = getHeight();
+			          width = 800;
+			          height = 560;
 			 
 			          X = X + dx ;
 			          Y = Y + dy;
@@ -57,16 +54,6 @@ public class Ball extends JPanel implements Observable {
 			            Y = height - radius;
 			          }
 			          repaint();
-			 
-			          try {
-			            Thread.sleep(50);
-			          } catch (InterruptedException ex) {
-			          }
-			 
-			        }
-			      }
-			    };
-			    thread.start();
 		  }
 		 
 		  public void paintComponent(Graphics g) {
@@ -74,6 +61,23 @@ public class Ball extends JPanel implements Observable {
 		    g.setColor(Color.BLUE);
 		    g.fillOval((int)(X-radius), (int)(Y-radius), (int)diameter, (int)diameter);
 		  }
+	
+		  
+	public float getRadius() {
+		return radius;
+	}
+	
+	public float getDiameter() {
+		return diameter;
+	}
+	
+	public float getBallX() {
+		return X;
+	}
+	
+	public float getBallY() {
+		return Y;
+	}
 	
 	public void addObserver(Observer o) {
 		observers.add(o);

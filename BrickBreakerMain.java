@@ -19,8 +19,8 @@ public class BrickBreakerMain{
         frame.setTitle("Brick Breaker");
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Paddle paddle = new Paddle();
-        frame.add(paddle);
+        //Paddle paddle = new Paddle();
+        //frame.add(paddle);
         //frame.pack();
         frame.setVisible(true);
         frame.add(gameBoard);

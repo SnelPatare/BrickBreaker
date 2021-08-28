@@ -21,6 +21,7 @@ public class Board extends JPanel implements Observer{
 	    int dir_X = -1;
 	    int dir_Y = -2;
 	    Ball gameBall;
+	    Paddle gamePaddle;
 
 	
 	//Inherited method from Observer
@@ -29,7 +30,7 @@ public class Board extends JPanel implements Observer{
 		}
 		
 		public Board(Ball gameBall, int numBricks) {
-			this.setSize(800, 600);
+			//this.setSize(getWidth(), getHeight());
 			this.gameBall = gameBall;
 			
 			gameBall.addObserver(this);
@@ -52,28 +53,38 @@ public class Board extends JPanel implements Observer{
 					brickX = 50;
 				}
 			}
-			//Adds the Paddle
-			Paddle paddle = new Paddle();
 			
-			this.add(paddle);
-			//repaint();
+			//Adds the Paddle
+			
+			gamePaddle = new Paddle();			
+			this.add(gamePaddle);
+			repaint();
+			start();
 		}
-	
-
-	        public void features (Graphics graph ){
-	            graph.setColor(Color.cyan);                  //Background
-	            graph.fillRect(10,10,700,500);
-	            graph.setColor(Color.BLACK);                 //Border
-	            graph.fillRect(0,0,3,500);
-	            graph.fillRect(0,0,700,3);
-	            graph.fillRect(699,0,3,500);
-	            graph.setColor(Color.GREEN);                 //Paddle
-	            graph.fillRect(dir_X,450,100,8);
-	            graph.setColor(Color.red);                 //ball
-	            graph.fillRect(ball_X,ball_Y,20,20);
-	        }
-
-	       
+		
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			gameBall.paintComponent(g);
+			gamePaddle.paintComponent(g);
+		}
+		
+		public void start() {
+		Thread thread = new Thread() {
+	      public void run() {
+		        while (true) {
+		          gameBall.move();
+		        	repaint();
+		          
+		          try {
+		            Thread.sleep(50);
+		          } catch (InterruptedException ex) {
+		          }
+		 
+		        }
+		      }
+		    };
+		    thread.start();
+		}
 	    
 
 }
