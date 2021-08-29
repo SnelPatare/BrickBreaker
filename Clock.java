@@ -41,6 +41,10 @@ public class Clock extends JLabel{
 					}
 			  }
 			}; 
+			
+		public void stopGame() {
+			gameClock.stop();
+		}
 
 		
 }

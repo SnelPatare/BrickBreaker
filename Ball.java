@@ -1,9 +1,12 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Ball extends JPanel implements Observable {
@@ -63,6 +66,12 @@ public class Ball extends JPanel implements Observable {
 			        		 if(o instanceof Brick) {
 			        			 o.update();
 			        			 observers.remove(o);
+			        			 if(observers.size() == 1) {
+			     						JOptionPane jop = new JOptionPane("All Bricks Destroyed");
+			     						JDialog dialog = jop.createDialog("Game Won");
+			     						dialog.setLayout(new BorderLayout());
+			     						dialog.setVisible(true);
+			        			 }
 			        			 repaint();
 			        			 break;
 			        		 }
