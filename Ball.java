@@ -62,6 +62,9 @@ public class Ball extends JPanel implements Observable {
 			        		 dy = -dy;
 			        		 if(o instanceof Brick) {
 			        			 o.update();
+			        			 observers.remove(o);
+			        			 repaint();
+			        			 break;
 			        		 }
 			        	 }
 			          }

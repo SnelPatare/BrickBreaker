@@ -13,7 +13,7 @@ public class BrickBreakerMain{
         JFrame frame = new JFrame();
         Ball ball = new Ball();
         //Takes in Ball as a parameter to observe as well as number of bricks
-        Board gameBoard = new Board(ball, 10); 
+        Board gameBoard = new Board(ball, 20); 
         //ball.addObserver(gameBoard);
         frame.setSize(800,600);
         frame.setTitle("Brick Breaker");

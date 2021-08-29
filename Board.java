@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
@@ -23,7 +24,14 @@ public class Board extends JPanel{
 	    Ball gameBall;
 	    Paddle gamePaddle;
 	    Clock gameClock;
+	    ArrayList<Brick> brickList = new ArrayList<Brick>();
 
+	    final int WIDTH_OFFSET = 100;
+	    final int HEIGHT_OFFSET = 80;
+	    final int BRICK_WIDTH = 80;
+	    final int BRICK_SPACING = 4;
+	    final int BRICK_HEIGHT = 12;
+	    final int BRICKS_PER_ROW = 5;
 	
 	//Inherited method from Observer
 		public void update() {
@@ -44,7 +52,11 @@ public class Board extends JPanel{
 			
 			//Populates the board with bricks
 			for(int i = 0; i < numBricks; i++) {
-				Brick newBrick = new Brick(gameBall);
+				Brick newBrick = new Brick((i%BRICKS_PER_ROW)*(BRICK_WIDTH+BRICK_SPACING)+WIDTH_OFFSET, 
+						HEIGHT_OFFSET-((i/BRICKS_PER_ROW)*(BRICK_HEIGHT+BRICK_SPACING)),
+						BRICK_WIDTH, BRICK_HEIGHT);
+				brickList.add(newBrick);
+				this.add(newBrick);
 				gameBall.addObserver(newBrick);
 				//this.add(newBrick, brickX, brickY);
 				brickX += 50;
@@ -71,6 +83,9 @@ public class Board extends JPanel{
 			super.paintComponent(g);
 			gameBall.paintComponent(g);
 			gamePaddle.paintComponent(g);
+			for(Brick brick:brickList) {
+				brick.paintComponent(g);
+			}
 		}
 		
 		public void start() {
@@ -89,6 +104,4 @@ public class Board extends JPanel{
 		    };
 		    thread.start();
 		}
-	    
-
 }
