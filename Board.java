@@ -24,6 +24,7 @@ public class Board extends JPanel{
 	    Ball gameBall;
 	    Paddle gamePaddle;
 	    Clock gameClock;
+	    public static boolean isPlay;
 	    ArrayList<Brick> brickList = new ArrayList<Brick>();
 
 	    final int WIDTH_OFFSET = 100;
@@ -41,6 +42,7 @@ public class Board extends JPanel{
 		public Board(Ball gameBall, int numBricks) {
 			//this.setSize(getWidth(), getHeight());
 			this.gameBall = gameBall;
+			this.isPlay=true;
 			
 			//gameBall.addObserver(this);
 			this.add(gameBall);
@@ -90,8 +92,9 @@ public class Board extends JPanel{
 		
 		public void start() {
 		Thread thread = new Thread() {
+			private boolean isplay = Board.isPlay;
 	      public void run() {
-		        while (true) {
+		        while (Board.isPlay) {
 		            gameBall.move();
 		        	repaint();		          
 		          try {

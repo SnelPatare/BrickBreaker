@@ -1,19 +1,20 @@
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 public class Clock extends JLabel{
 	private Timer gameClock;
-	private String currentTime;
-	private int mins = 1;
-	private int secs = 59;
+	private int mins = 00;
+	private int secs = 10;
 	
 		
 		public Clock() {
 			
-			super("01:59"); 
+			super("00:10"); 
 			this.gameClock = new Timer(1000, updateClockAction);
 			this.gameClock.start();
 			
@@ -40,6 +41,14 @@ public class Clock extends JLabel{
 						else {
 						setText(mins + ":" + secs);
 						}
+					}
+					if (secs == 01 && mins == 00) {
+						Board.isPlay=false;
+						JOptionPane jop = new JOptionPane("Time Out");
+						JDialog dialog = jop.createDialog("Error Message");
+						dialog.setLayout(new BorderLayout());
+						dialog.setVisible(true);
+						gameClock.stop();
 					}
 			  }
 			}; 
