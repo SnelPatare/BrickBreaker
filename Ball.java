@@ -33,7 +33,7 @@ public class Ball extends JPanel implements Observable {
 		  }
 		  
 		  public void move() {
-			          width = 800;
+			          width = 780;
 			          height = 560;
 			 
 			          X = X + dx ;
