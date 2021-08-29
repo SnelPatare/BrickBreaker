@@ -54,8 +54,7 @@ public class Ball extends JPanel implements Observable {
 			            dy = -dy;
 			            Y = radius;
 			          } else if (Y + radius > height) {
-			            dy = -dy;
-			            Y = height - radius;
+				        	 endGame("Ball Out of Bounds");
 			          }
 			         
 			          for(Observer o: observers) {
@@ -67,10 +66,7 @@ public class Ball extends JPanel implements Observable {
 			        			 o.update();
 			        			 observers.remove(o);
 			        			 if(observers.size() == 1) {
-			     						JOptionPane jop = new JOptionPane("All Bricks Destroyed");
-			     						JDialog dialog = jop.createDialog("Game Won");
-			     						dialog.setLayout(new BorderLayout());
-			     						dialog.setVisible(true);
+			     						endGame("All Bricks Destroyed");
 			        			 }
 			        			 repaint();
 			        			 break;
@@ -100,6 +96,15 @@ public class Ball extends JPanel implements Observable {
 	
 	public float getBallY() {
 		return Y;
+	}
+	
+	//Displays a dialogue box with reason for game end and then closes the application
+	public void endGame(String endgameMessage) {
+			JOptionPane jop = new JOptionPane(endgameMessage);
+			JDialog dialog = jop.createDialog("Game Over");
+			dialog.setLayout(new BorderLayout());
+			dialog.setVisible(true);
+			System.exit(1);
 	}
 	
 	public void addObserver(Observer o) {
