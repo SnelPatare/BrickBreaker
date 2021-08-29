@@ -1,3 +1,14 @@
+/.classpath
+/.idea/
+/.project
+/Ball.class
+/Board$1.class
+/Board.class
+/Brick.class
+/BrickBreakerMain.class
 /Clock$1.class
 /Clock.class
+/Observable.class
+/Observer.class
+/Paddle.class
 /README.md
