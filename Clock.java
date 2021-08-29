@@ -33,7 +33,13 @@ public class Clock extends JLabel{
 						setText(mins + ":0" + secs);
 					}
 					else {
+						if(mins < 10)
+						{
+							setText("0" + mins + ":" + secs);
+						}
+						else {
 						setText(mins + ":" + secs);
+						}
 					}
 			  }
 			}; 
