@@ -58,7 +58,7 @@ public class Ball extends JPanel implements Observable {
 			          for(Observer o: observers) {
 			        	 Rectangle ball = new Rectangle((int)X, (int)Y, (int)diameter, (int)diameter);
 			        	 if(ball.intersects(o.getBounds())){
-			        		 dx = -dx;
+			        		 //dx = -dx;
 			        		 dy = -dy;
 			        		 if(o instanceof Brick) {
 			        			 o.update();

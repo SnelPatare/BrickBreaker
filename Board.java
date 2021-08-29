@@ -17,11 +17,12 @@ public class Board extends JPanel{
 	    int bricks = 12;
 	    int X = 210;
 	    int ball_X = 100;
-	    int ball_Y = 250;
+	    int ball_Y = 250; 
 	    int dir_X = -1;
 	    int dir_Y = -2;
 	    Ball gameBall;
 	    Paddle gamePaddle;
+	    Clock gameClock;
 
 	
 	//Inherited method from Observer
@@ -60,6 +61,9 @@ public class Board extends JPanel{
 			this.add(gamePaddle);
 			gameBall.addObserver(gamePaddle);
 			//repaint();
+			
+			gameClock = new Clock();
+			this.add(gameClock);
 			start();
 		}
 		
@@ -74,8 +78,7 @@ public class Board extends JPanel{
 	      public void run() {
 		        while (true) {
 		            gameBall.move();
-		        	repaint();
-		          
+		        	repaint();		          
 		          try {
 		            Thread.sleep(50);
 		          } catch (InterruptedException ex) {
