@@ -38,6 +38,7 @@ public class Clock extends JLabel{
 						dialog.setLayout(new BorderLayout());
 						dialog.setVisible(true);
 						gameClock.stop();
+						System.exit(1);
 					}
 			  }
 			}; 
